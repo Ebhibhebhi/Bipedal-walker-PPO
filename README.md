@@ -1,4 +1,25 @@
-BipedalWalker-v3: PPO Hyperparameter Ablation StudyThis repository investigates the impact of various hyperparameters on the training stability and performance of a Proximal Policy Optimization (PPO) agent in the BipedalWalker-v3 environment.InstallationBashpip install gymnasium[box2d] stable-baselines3[extra] shimmy
-Experiments TableExperimentent_coefγλNormDescriptionNormalized Baseline0.010.990.95YesControl group with standard settings.High Exploration0.050.990.95YesHigher entropy to prevent local minima.Short Sighted0.010.700.95YesFocuses on immediate rewards.Strict Clipping0.010.990.95YesLimits motor torque range to 0.5.High Lambda0.010.991.00YesLower bias, higher variance (Monte Carlo).Low Lambda0.010.990.80YesHigher bias, lower variance (TD-heavy).Results and AnalysisGamma Impact: Reducing $\gamma$ to 0.70 causes the agent to fail. It prioritizes immediate stability over the long-term goal of reaching the end of the track.Lambda Tradeoff: $\lambda = 1.0$ produces higher variance in rewards, making training more erratic. $\lambda = 0.8$ results in smoother convergence but potentially lower asymptotic performance due to bias in the value function.UsageTraining:Run the master script to execute all ablation tests sequentially:Bashpython train.py
-Evaluation:Load a specific model and its normalization statistics to record performance:Bashpython evaluate.py
-Project Structuretrain.py: Main loop for automated training and TensorBoard logging.evaluate.py: Standalone script for loading and testing trained models./models: Saved .zip model files and .pkl normalization stats./logs: TensorBoard event files./videos: MP4 recordings of evaluation runs.
+# BipedalWalker-v3: PPO Hyperparameter Ablation Study
+
+This repository investigates the impact of various hyperparameters on the training stability and performance of a Proximal Policy Optimization (PPO) agent in the `BipedalWalker-v3` environment.
+
+## Installation
+
+```bash
+pip install gymnasium[box2d] stable-baselines3[extra] shimmy
+```
+
+![table](table.jpg)
+
+## Usage
+
+- To execute all ablation tests sequentially run train.py
+
+- To load a specific model and its normalization statistics to record a performance video run evaluate.py
+
+- The remaining files starting with eval are all videos of the final performances of the experiments ran
+
+# Here are the results of the greatest training run of 1M timesteps per experiment:
+![1Mresults](1M.jpg)
+
+# Here are the results of a previous run of 500K timesteps per experiment
+![500Kres](500K.jpg)
