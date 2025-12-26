@@ -24,6 +24,6 @@ pip install gymnasium[box2d] stable-baselines3[extra] shimmy
 # Here are the results of a previous run of 500K timesteps per experiment
 ![500Kres](500K.jpg)
 
-# Here is the video of the best model that developed a graceful frollick
+# Here is the video of the best model that developed a graceful frolic
 
 https://github.com/user-attachments/assets/af6b87bb-0fb4-4c85-b8c2-974a6bdc25ab
