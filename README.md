@@ -27,3 +27,7 @@ pip install gymnasium[box2d] stable-baselines3[extra] shimmy
 # Here is the video of the best model that developed a graceful frolic
 
 https://github.com/user-attachments/assets/af6b87bb-0fb4-4c85-b8c2-974a6bdc25ab
+
+# Here are its rewards, showing that it crossed the 300 point mark
+
+![Screenshot 2025-12-25 214211](https://github.com/user-attachments/assets/f8ad6e8b-8e1b-4bca-a557-947be530a495)
